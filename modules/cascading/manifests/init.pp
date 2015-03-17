@@ -14,7 +14,7 @@ class cascading{
   }
 
   exec { "unpack_sdk" :
-    command => "tar xf /tmp/Cascading-*tgz -C /opt && mv /opt/Cascading*SDK* /opt/CascadingSDK",
+    command => "tar xf /tmp/Cascading*tgz -C /opt && mv /opt/Cascading*SDK* /opt/CascadingSDK",
     path => $path,
     unless => "ls /opt | grep CascadingSDK",
     require => Exec["download_sdk"]
