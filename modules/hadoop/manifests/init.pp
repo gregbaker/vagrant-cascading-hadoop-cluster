@@ -1,6 +1,6 @@
 class hadoop($slaves_file = undef, $hdfs_site_file = undef) {
 
-  $hadoop_version = "2.5.2"
+  $hadoop_version = "2.6.0"
   $hadoop_home = "/opt/hadoop-${hadoop_version}"
   $hadoop_tarball = "hadoop-${hadoop_version}.tar.gz"
   $hadoop_tarball_checksums = "${hadoop_tarball}.mds"
