@@ -3,7 +3,7 @@
 Clone this project to create a 4 node [Apache Hadoop](http://hadoop.apache.org) cluster with the [Cascading
 SDK](http://www.cascading.org/sdk/) pre-installed.
 
-The Cascading 2.6 SDK includes Cascading and many of its sub-projects:
+The Cascading 2.7 SDK includes Cascading and many of its sub-projects:
 
 * [Lingual](http://www.cascading.org/lingual/) - ANSI SQL Command Shell and JDBC Driver
 * [Pattern](http://www.cascading.org/pattern/) - Machine Learning
@@ -126,7 +126,7 @@ To not overload the host machine, has each tasktracker a hard limit of 1 map tas
 
 ## Cascading SDK
 
-Puppet will download the latest [Cascading SDK](http://www.cascading.org/sdk/) 2.6-wip build and put all SDK tools in
+Puppet will download the latest [Cascading SDK](http://www.cascading.org/sdk/) 2.7-wip build and put all SDK tools in
 the `PATH`. The SDK itself can be found in `/opt/CascadingSDK`.
 
 ### Driven
