@@ -6,5 +6,6 @@ class{ 'hadoop':
 }
 
 #include hbase
+include spark
 include avahi
 include cascading

@@ -4,3 +4,4 @@ employees.tgz
 hadoop-*.tar.gz
 hadoop-*.tar.gz.mds
 hbase-*.tar.gz
+spark-*.tgz
