@@ -30,4 +30,18 @@ class spark {
     group => root,
   }
 
+  # for spark standalone mode
+  file { "${spark_home}/logs":
+    ensure => "directory",
+    owner  => "mapred",
+    group  => "mapred",
+    mode   => 755,
+    require => Exec["unpack_spark"]
+  }
+  exec { "spark_slaves" :
+    command => "ln -s /opt/hadoop-*/etc/hadoop/slaves ${spark_home}/conf/slaves",
+    path => $path,
+    creates => "${spark_home}/conf/slaves",
+    require => Exec["unpack_spark"]
+  }
 }
