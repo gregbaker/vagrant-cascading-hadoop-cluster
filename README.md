@@ -102,9 +102,9 @@ start up a new cluster.
 
 You can access all services of the cluster with your web-browser.
 
-* namenode: http://master.local:50070/dfshealth.jsp
-* application master: http://master.local:8088/cluster
-* job history server: http://master.local:19888/jobhistory
+* namenode: http://master.local:50070/
+* application master: http://master.local:8088/
+* job history server: http://master.local:19888/
 
 ### Command line
 
