@@ -1,5 +1,5 @@
 class hive {
-  $hive_version = "1.1.1"
+  $hive_version = "1.2.1"
   $hive_tarball = "apache-hive-${hive_version}-bin.tar.gz"
   $hive_home = "/opt/apache-hive-${hive_version}-bin"
 
@@ -15,7 +15,7 @@ class hive {
     command => "tar xf /vagrant/${hive_tarball} -C /opt",
     path => $path,
     creates => "${hive_home}",
-    require => Exec["download_hive"]
+    require => Exec["download_hive", "unpack_hadoop"]
   }
 
   file { "/etc/profile.d/hive-path.sh":
