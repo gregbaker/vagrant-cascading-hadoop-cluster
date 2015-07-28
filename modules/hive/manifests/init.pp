@@ -23,5 +23,14 @@ class hive {
     owner => vagrant,
     group => root,
   }
+  
+  file {
+    "${hive_home}/bin/prepare-hive.sh":
+      source => "puppet:///modules/hive/prepare-hive.sh",
+      mode => 755,
+      owner => vagrant,
+      group => root,
+      require => Exec["unpack_hive"]
+  }
 
 }
