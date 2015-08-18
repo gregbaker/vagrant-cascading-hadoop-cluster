@@ -1,8 +1,9 @@
 class spark {
-  $spark_version = "1.4.0"
-  $hadoop_version = "2.6"
-  $spark_home = "/opt/spark-${spark_version}-bin-hadoop${hadoop_version}"
-  $spark_tarball = "spark-${spark_version}-bin-hadoop${hadoop_version}.tgz"
+  $spark_version = "1.4.1"
+  $hadoop_version = "2.7.1" # installed Hadoop version
+  $hadoop_spark = "2.6" # Hadoop version for spark compatibility
+  $spark_home = "/opt/spark-${spark_version}-bin-hadoop${hadoop_spark}"
+  $spark_tarball = "spark-${spark_version}-bin-hadoop${hadoop_spark}.tgz"
 
   package { "scala" :
     ensure => present,
@@ -10,7 +11,7 @@ class spark {
   }
 
   exec { "download_spark":
-    command => "/tmp/grrr spark/spark-${spark_version}/spark-${spark_version}-bin-hadoop${hadoop_version}.tgz  -O /vagrant/$spark_tarball --read-timeout=5 --tries=0",
+    command => "/tmp/grrr spark/spark-${spark_version}/spark-${spark_version}-bin-hadoop${hadoop_spark}.tgz  -O /vagrant/$spark_tarball --read-timeout=5 --tries=0",
     timeout => 1800,
     path => $path,
     creates => "/vagrant/$spark_tarball",
@@ -39,7 +40,7 @@ class spark {
     require => Exec["unpack_spark"]
   }
   exec { "spark_slaves" :
-    command => "ln -s /opt/hadoop-*/etc/hadoop/slaves ${spark_home}/conf/slaves",
+    command => "ln -s /opt/hadoop-${hadoop_version}/etc/hadoop/slaves ${spark_home}/conf/slaves",
     path => $path,
     creates => "${spark_home}/conf/slaves",
     require => Exec["unpack_spark"]
