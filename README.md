@@ -36,9 +36,9 @@ This will set up 4 machines - `master`, `hadoop1`, `hadoop2` and `hadoop3`. Each
 RAM. If this is too much for your machine, adjust the `Vagrantfile`.
 
 The machines will be provisioned using [Puppet](http://puppetlabs.com/). All of them will have hadoop
-(apache-hadoop-2.6.0) installed, ssh will be configured and local name resolution also works.
+(apache-hadoop-2.7.1) installed, ssh will be configured and local name resolution also works.
 
-Hadoop is installed in `/opt/hadoop-2.6.0` and all tools are in the `PATH`.
+Hadoop is installed in `/opt/hadoop-2.7.1` and all tools are in the `PATH`.
 
 The `master` machine acts as the namenode and the yarn resource manager, the 3 others are data nodes and run node
 managers.
@@ -58,7 +58,7 @@ is required.
 
 ### Starting the cluster
 
-This cluster uses the `ssh-into-all-the-boxes-and-start-things-up`-approach, which is fine for testing.
+This cluster uses the `ssh`-into-all-the-boxes-and-start-things-up-approach, which is fine for testing.
 
 Once all machines are up and provisioned, the cluster can be started. Log into the master, format hdfs and start the
 cluster.
@@ -131,7 +131,7 @@ the `PATH`. The SDK itself can be found in `/opt/CascadingSDK`.
 
 ### Driven
 
-The SDK allows you to install the [Driven plugin for Cascading]((http://cascading.io/driven) , by simply running
+The SDK allows you to install the [Driven plugin for Cascading](http://cascading.io/driven) , by simply running
 `install-driven-plugin`. This will install the plugin for the vagrant user in `/home/vagrant/.cascading/.driven-plugin`.
 
 Installing the plugin will cause every Cascading based application to send telemetry to `https://driven.cascading.io`.
