@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--cpus", "1", "--memory", "512"]
+    vb.customize ["modifyvm", :id, "--cpus", "1", "--memory", "1024"]
   end
 
   config.vm.provider "vmware_fusion" do |v, override|
@@ -50,6 +50,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :master, primary: true do |master|
     master.vm.network "private_network", ip: "192.168.7.10"
     master.vm.hostname = "master.local"
+
+    config.vm.synced_folder "/home/ggbaker/crs/732", "/home/vagrant/732"
 
     config.vm.provision :puppet do |puppet|
       puppet.manifest_file = "master.pp"

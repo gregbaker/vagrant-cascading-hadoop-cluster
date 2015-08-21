@@ -1,7 +1,20 @@
-class hbase {
+class hbase($regionservers_file = undef, $hbase_site_file = undef) {
   $hbase_version = "1.1.1"
   $hbase_home = "/opt/hbase-${hbase_version}"
   $hbase_tarball = "hbase-${hbase_version}-bin.tar.gz"
+
+  if $regionservers_file == undef {
+    $_regionservers_file = "puppet:///modules/hbase/regionservers_file"
+  }
+  else {
+    $_regionservers_file = $regionservers_file
+  }
+  if $hbase_site_file == undef {
+    $_hbase_site_file = "puppet:///modules/hbase/hbase-site.xml"
+  }
+  else {
+    $_hbase_site_file = $hbase_site_file
+  }
 
   file { "/srv/zookeeper":
     ensure => "directory"
@@ -24,7 +37,7 @@ class hbase {
 
   file {
     "${hbase_home}/conf/regionservers":
-      source => "puppet:///modules/hbase/regionservers",
+      source => $_regionservers_file,
       mode => 644,
       owner => root,
       group => root,
@@ -33,7 +46,7 @@ class hbase {
 
   file {
     "${hbase_home}/conf/hbase-site.xml":
-      source => "puppet:///modules/hbase/hbase-site.xml",
+      source => $_hbase_site_file,
       mode => 644,
       owner => root,
       group => root,
