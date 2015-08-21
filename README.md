@@ -157,7 +157,7 @@ The setup is fully distributed. `hadoop1`, `hadoop2` and `hadoop3` are running a
 [zookeeper](http://zookeeper.apache.org) instance and a region-server each. The HBase master is running on the `master`
 VM.
 
-The webinterface of the HBase master is http://master.local:60010.
+The webinterface of the HBase master is http://master.local:16010.
 
 ## Hacking & Troubleshooting & Tips & Tricks
 
