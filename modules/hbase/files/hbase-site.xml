@@ -23,4 +23,8 @@
       true: fully-distributed with unmanaged Zookeeper Quorum (see hbase-env.sh)
     </description>
   </property>
+  <property>
+    <name>dfs.replication</name>
+    <value>2</value>
+  </property>
 </configuration>
