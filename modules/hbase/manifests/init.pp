@@ -4,7 +4,7 @@ class hbase($regionservers_file = undef, $hbase_site_file = undef) {
   $hbase_tarball = "hbase-${hbase_version}-bin.tar.gz"
 
   if $regionservers_file == undef {
-    $_regionservers_file = "puppet:///modules/hbase/regionservers_file"
+    $_regionservers_file = "puppet:///modules/hbase/regionservers"
   }
   else {
     $_regionservers_file = $regionservers_file
