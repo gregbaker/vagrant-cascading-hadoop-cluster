@@ -8,10 +8,8 @@ class phoenix {
   $server_jar = "phoenix-${phoenix_version}-HBase-${hbase_compat}-server.jar"
   $client_jar = "phoenix-${phoenix_version}-HBase-${hbase_compat}-client.jar"
 
-#http://apache.mirror.iweb.ca/phoenix/phoenix-4.5.1-HBase-1.1/bin/phoenix-4.5.1-HBase-1.1-bin.tar.gz
-
   exec { "download_phoenix":
-    command => "/tmp/grrr hive/phoenix/phoenix-${phoenix_version}-HBase-${hbase_compat}/bin/phoenix-${phoenix_version}-HBase-${hbase_compat}-bin.tar.gz -O /vagrant/$phoenix_tarball --read-timeout=5 --tries=0",
+    command => "/tmp/grrr phoenix/phoenix-${phoenix_version}-HBase-${hbase_compat}/bin/phoenix-${phoenix_version}-HBase-${hbase_compat}-bin.tar.gz -O /vagrant/${phoenix_tarball} --read-timeout=5 --tries=0",
     timeout => 1800,
     path => $path,
     creates => "/vagrant/${phoenix_tarball}",

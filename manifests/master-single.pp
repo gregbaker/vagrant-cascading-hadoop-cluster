@@ -11,7 +11,7 @@ class{ 'hbase':
 
 include hbase
 #include hive
-#include phoenix
+include phoenix
 include spark
 include avahi
 include cascading
