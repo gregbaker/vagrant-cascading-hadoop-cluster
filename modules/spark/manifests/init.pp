@@ -1,5 +1,5 @@
 class spark {
-  $spark_version = "1.4.1"
+  $spark_version = "1.5.0"
   $hadoop_version = "2.7.1" # installed Hadoop version
   $hadoop_spark = "2.6" # Hadoop version for spark compatibility
   $spark_home = "/opt/spark-${spark_version}-bin-hadoop${hadoop_spark}"
