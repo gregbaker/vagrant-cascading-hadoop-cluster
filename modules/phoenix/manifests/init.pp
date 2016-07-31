@@ -1,7 +1,7 @@
 class phoenix {
-  $phoenix_version = "4.5.1"
+  $phoenix_version = "4.7.0"
   $hbase_compat = "1.1" # phoenix compatibility version
-  $hbase_version = "1.1.1" # actual installed version
+  $hbase_version = "1.2.2" # actual installed version
   $phoenix_tarball = "phoenix-${phoenix_version}-HBase-${hbase_compat}-bin.tar.gz"
   $phoenix_home = "/opt/phoenix-${phoenix_version}-HBase-${hbase_compat}-bin"
   

@@ -1,5 +1,5 @@
 class hive {
-  $hive_version = "1.2.1"
+  $hive_version = "2.1.0"
   $hive_tarball = "apache-hive-${hive_version}-bin.tar.gz"
   $hive_home = "/opt/apache-hive-${hive_version}-bin"
 
