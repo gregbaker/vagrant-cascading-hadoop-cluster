@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     hadoop1.vm.network "private_network", ip: "192.168.7.12"
     hadoop1.vm.hostname = "hadoop1.local"
 
-    config.vm.provision :puppet do |puppet|
+    hadoop1.vm.provision :puppet do |puppet|
       puppet.manifest_file = "datanode.pp"
       puppet.module_path = "modules"
     end
@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     hadoop2.vm.network "private_network", ip: "192.168.7.13"
     hadoop2.vm.hostname = "hadoop2.local"
 
-    config.vm.provision :puppet do |puppet|
+    hadoop2.vm.provision :puppet do |puppet|
       puppet.manifest_file = "datanode.pp"
       puppet.module_path = "modules"
     end
@@ -41,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     hadoop3.vm.network "private_network", ip: "192.168.7.14"
     hadoop3.vm.hostname = "hadoop3.local"
 
-    config.vm.provision :puppet do |puppet|
+    hadoop3.vm.provision :puppet do |puppet|
       puppet.manifest_file = "datanode.pp"
       puppet.module_path = "modules"
     end
@@ -51,7 +51,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     master.vm.network "private_network", ip: "192.168.7.10"
     master.vm.hostname = "master.local"
 
-    config.vm.provision :puppet do |puppet|
+    master.vm.provision :puppet do |puppet|
       puppet.manifest_file = "master.pp"
       puppet.module_path = "modules"
     end
