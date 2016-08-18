@@ -4,3 +4,4 @@ include hbase
 include phoenix
 include spark
 include avahi
+include cassandra

@@ -6,3 +6,4 @@ include phoenix
 include spark
 include avahi
 include cascading
+include cassandra
