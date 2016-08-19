@@ -26,5 +26,6 @@ class phoenix {
   file { "/opt/hbase-${hbase_version}/lib/${server_jar}":
     ensure => 'link',
     target => "${phoenix_home}/${server_jar}",
+    require => [ Exec["download_grrr"], Exec["unpack_hbase"] ]
   }
 }
