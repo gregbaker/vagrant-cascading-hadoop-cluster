@@ -25,7 +25,7 @@ class hbase($regionservers_file = undef, $hbase_site_file = undef) {
     timeout => 1800,
     path => $path,
     creates => "/vagrant/$hbase_tarball",
-    require => [ Package["openjdk-7-jdk"], Exec["download_grrr"]]
+    require => [ Package["openjdk-8-jdk"], Exec["download_grrr"]]
   }
 
   exec { "unpack_hbase" :

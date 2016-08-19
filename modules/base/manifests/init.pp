@@ -6,7 +6,7 @@ class base{
     command => '/usr/bin/apt-get update',
   }
 
-  package { "openjdk-7-jdk" :
+  package { "openjdk-8-jdk" :
     ensure => present,
     require => Exec['apt-get update']
   }
