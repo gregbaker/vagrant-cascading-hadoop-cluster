@@ -179,6 +179,17 @@ else stays the same.
 
 ## Hacking & Troubleshooting
 
+### Windows Line Endings
+
+If you're working from a Windows HOST some of the line endings in files may have been converted to Windows EOL characters rather than Linux EOL characters.  If you have issues with the Linux VM not being able to run the **.sh** files on the VM you may have corrupted line endings.  To make sure the files work properly that are transferred to the VM from your HOST machines you need to run the following commands in your repo:
+
+```
+$ git config core.eol lf
+$ git config core.autocrlf input
+```
+
+You'll then need to re-clone the repo to make sure you get Linux EOL characters
+
 ### File sharing
 
 Vagrant makes it easy to share files between the vms of the cluster and your host machine. The project directory is

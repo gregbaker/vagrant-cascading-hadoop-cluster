@@ -4,7 +4,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "larryli/vivid64"
+  config.vm.box = "puppetlabs/ubuntu-16.04-64-puppet"
+  config.vm.box_version = "1.0.0"
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--cpus", "1", "--memory", "1024"]

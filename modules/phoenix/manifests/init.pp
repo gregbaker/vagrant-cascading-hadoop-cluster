@@ -1,7 +1,7 @@
 class phoenix {
-  $phoenix_version = "4.7.0"
-  $hbase_compat = "1.1" # phoenix compatibility version
-  $hbase_version = "1.2.2" # actual installed version
+  $phoenix_version = "4.8.2"
+  $hbase_compat = "1.2" # phoenix compatibility version
+  $hbase_version = "1.2.6" # actual installed version
   $phoenix_tarball = "phoenix-${phoenix_version}-HBase-${hbase_compat}-bin.tar.gz"
   $phoenix_home = "/opt/phoenix-${phoenix_version}-HBase-${hbase_compat}-bin"
   
@@ -9,7 +9,7 @@ class phoenix {
   $client_jar = "phoenix-${phoenix_version}-HBase-${hbase_compat}-client.jar"
 
   exec { "download_phoenix":
-    command => "/tmp/grrr phoenix/phoenix-${phoenix_version}-HBase-${hbase_compat}/bin/phoenix-${phoenix_version}-HBase-${hbase_compat}-bin.tar.gz -O /vagrant/${phoenix_tarball} --read-timeout=5 --tries=0",
+    command => "/tmp/grrr phoenix/apache-phoenix-${phoenix_version}-HBase-${hbase_compat}/bin/apache-phoenix-${phoenix_version}-HBase-${hbase_compat}-bin.tar.gz -O /vagrant/${phoenix_tarball} --read-timeout=5 --tries=0",
     timeout => 1800,
     path => $path,
     creates => "/vagrant/${phoenix_tarball}",

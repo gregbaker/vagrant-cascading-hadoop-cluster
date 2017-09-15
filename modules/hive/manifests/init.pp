@@ -1,5 +1,5 @@
 class hive {
-  $hive_version = "2.1.0"
+  $hive_version = "2.1.1"
   $hive_tarball = "apache-hive-${hive_version}-bin.tar.gz"
   $hive_home = "/opt/apache-hive-${hive_version}-bin"
 
@@ -27,7 +27,7 @@ class hive {
   file {
     "${hive_home}/bin/prepare-hive.sh":
       source => "puppet:///modules/hive/prepare-hive.sh",
-      mode => 755,
+      mode => "755",
       owner => vagrant,
       group => root,
       require => Exec["unpack_hive"]
