@@ -1,5 +1,5 @@
 class hbase($regionservers_file = undef, $hbase_site_file = undef) {
-  $hbase_version = "1.2.2"
+  $hbase_version = "1.2.6"
   $hbase_home = "/opt/hbase-${hbase_version}"
   $hbase_tarball = "hbase-${hbase_version}-bin.tar.gz"
 
@@ -25,7 +25,7 @@ class hbase($regionservers_file = undef, $hbase_site_file = undef) {
     timeout => 1800,
     path => $path,
     creates => "/vagrant/$hbase_tarball",
-    require => [ Package["openjdk-7-jdk"], Exec["download_grrr"]]
+    require => [ Package["openjdk-8-jdk"], Exec["download_grrr"]]
   }
 
   exec { "unpack_hbase" :
@@ -38,7 +38,7 @@ class hbase($regionservers_file = undef, $hbase_site_file = undef) {
   file {
     "${hbase_home}/conf/regionservers":
       source => $_regionservers_file,
-      mode => 644,
+      mode => "644",
       owner => root,
       group => root,
       require => Exec["unpack_hbase"]
@@ -47,7 +47,7 @@ class hbase($regionservers_file = undef, $hbase_site_file = undef) {
   file {
     "${hbase_home}/conf/hbase-site.xml":
       source => $_hbase_site_file,
-      mode => 644,
+      mode => "644",
       owner => root,
       group => root,
       require => Exec["unpack_hbase"]
@@ -56,7 +56,7 @@ class hbase($regionservers_file = undef, $hbase_site_file = undef) {
   file {
     "${hbase_home}/conf/hbase-env.sh":
       source => "puppet:///modules/hbase/hbase-env.sh",
-      mode => 644,
+      mode => "644",
       owner => root,
       group => root,
       require => Exec["unpack_hbase"]

@@ -1,6 +1,6 @@
 class spark {
-  $spark_version = "2.0.0"
-  $hadoop_version = "2.7.2" # installed Hadoop version
+  $spark_version = "2.0.2"
+  $hadoop_version = "2.7.4" # installed Hadoop version
   $hadoop_spark = "2.7" # Hadoop version for spark compatibility
   $spark_home = "/opt/spark-${spark_version}-bin-hadoop${hadoop_spark}"
   $spark_tarball = "spark-${spark_version}-bin-hadoop${hadoop_spark}.tgz"
@@ -36,7 +36,7 @@ class spark {
     ensure => "directory",
     owner  => "mapred",
     group  => "mapred",
-    mode   => 755,
+    mode => "755",
     require => Exec["unpack_spark"]
   }
   exec { "spark_slaves" :
